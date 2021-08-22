@@ -13,7 +13,7 @@ int fieldx = 20;
 int fieldy = -40;
 int fieldw = 12;
 int fieldh = 24;
-PFont font = createFont("Helvetica", 24);
+PFont font;
 int score = 0;
 TBlock currentBlock;
 SBlock sblock;
@@ -288,7 +288,9 @@ void generateBlock() {
 }
 
 void setup() {
-  size(size*16, size*26);
+  font = createFont("Helvetica", 24);
+  
+  surface.setSize(size*16, size*26);
   rectMode(CORNERS);
   
   resetBoard();
@@ -418,4 +420,3 @@ void keyPressed() {
 void keyReleased() {
   keysDown.remove(keyEvent.getKeyCode());
 }
-
